@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishControl", "PublishCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{810E0B54-7B6D-44FA-AB8A-7E8815A11B05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grip", "Grip\Grip.csproj", "{53F1DB2F-8F1C-4FE1-A9AE-FE1CE63500CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{810E0B54-7B6D-44FA-AB8A-7E8815A11B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{810E0B54-7B6D-44FA-AB8A-7E8815A11B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{810E0B54-7B6D-44FA-AB8A-7E8815A11B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53F1DB2F-8F1C-4FE1-A9AE-FE1CE63500CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F1DB2F-8F1C-4FE1-A9AE-FE1CE63500CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F1DB2F-8F1C-4FE1-A9AE-FE1CE63500CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F1DB2F-8F1C-4FE1-A9AE-FE1CE63500CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
