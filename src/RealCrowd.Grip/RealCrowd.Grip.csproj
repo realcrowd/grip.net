@@ -7,8 +7,8 @@
     <ProjectGuid>{53F1DB2F-8F1C-4FE1-A9AE-FE1CE63500CF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grip</RootNamespace>
-    <AssemblyName>Grip</AssemblyName>
+    <RootNamespace>RealCrowd.Grip</RootNamespace>
+    <AssemblyName>RealCrowd.Grip</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PublishControl\PublishControl.csproj">
+    <ProjectReference Include="..\PublishControl\RealCrowd.PublishControl.csproj">
       <Project>{507005a4-de6e-4220-8f99-b5e640daa839}</Project>
-      <Name>PublishControl</Name>
+      <Name>RealCrowd.PublishControl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
