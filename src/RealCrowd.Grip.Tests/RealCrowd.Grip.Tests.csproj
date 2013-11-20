@@ -53,6 +53,16 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RealCrowd.Grip\RealCrowd.Grip.csproj">
+      <Project>{53f1db2f-8f1c-4fe1-a9ae-fe1ce63500cf}</Project>
+      <Name>RealCrowd.Grip</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealCrowd.PublishControl\RealCrowd.PublishControl.csproj">
+      <Project>{507005a4-de6e-4220-8f99-b5e640daa839}</Project>
+      <Name>RealCrowd.PublishControl</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

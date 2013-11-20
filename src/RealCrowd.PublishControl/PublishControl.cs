@@ -10,34 +10,6 @@ using System.Net.Http.Headers;
 
 namespace RealCrowd.PublishControl
 {
-    public abstract class Format
-    {
-        public abstract string Name { get; }
-
-        public abstract object ToObject();
-    }
-
-    public class Item
-    {
-        public List<Format> Formats { get; set; }
-
-        public string Id { get; set; }
-
-        public string PrevId { get; set; }
-
-        public Dictionary<string, object> ToDictionary()
-        {
-            var d = new Dictionary<string, object>();
-            if (Id != null)
-                d["id"] = Id;
-            if (PrevId != null)
-                d["prev-id"] = PrevId;
-            foreach (var format in Formats)
-                d[format.Name] = format.ToObject();
-            return d;
-        }
-    }
-
     public class PublishControl
     {
         private string baseUri;
