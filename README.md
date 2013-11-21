@@ -15,7 +15,7 @@ Background
 Usage
 -----
 
-To subscribe a client to a channel:
+To subscribe an incoming HTTP request to a channel:
 
 ```c#
 async Task<HttpResponseMessage> GetAsync(...)
@@ -33,7 +33,7 @@ async Task<HttpResponseMessage> GetAsync(...)
 }
 ```
 
-To publish on a channel:
+To publish an HTTP response on a channel:
 
 ```c#
 var publishControl = new Grip.GripPublishControl("http://localhost:5561");
