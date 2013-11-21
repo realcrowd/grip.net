@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) RealCrowd, Inc. All rights reserved. See LICENSE in the project root for license information.
+
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RealCrowd.PublishControl;
 using System.IO;

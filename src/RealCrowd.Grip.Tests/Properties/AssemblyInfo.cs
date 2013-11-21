@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿// Copyright (c) RealCrowd, Inc. All rights reserved. See LICENSE in the project root for license information.
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 

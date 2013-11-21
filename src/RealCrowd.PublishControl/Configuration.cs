@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿// Copyright (c) RealCrowd, Inc. All rights reserved. See LICENSE in the project root for license information.
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;

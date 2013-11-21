@@ -1,8 +1,12 @@
 HTTP GRIP library for .NET
 ==========================
 
-This library implements the Generic Realtime Intermediary Protocol (GRIP),
-used by Pushpin and Fanout.io to deliver realtime pushes to HTTP clients.
+This library implements the Generic Realtime Intermediary Protocol (GRIP), used by Pushpin and Fanout.io to deliver realtime pushes to HTTP clients.
+
+Copyright (c) RealCrowd, Inc. All rights reserved. See LICENSE in the project root for license information.
+
+Usage
+-----
 
 To subscribe a client to a channel:
 
