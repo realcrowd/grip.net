@@ -5,6 +5,13 @@ This library implements the Generic Realtime Intermediary Protocol (GRIP), used 
 
 Copyright (c) RealCrowd, Inc. All rights reserved. See LICENSE in the project root for license information.
 
+Background
+----------
+
+* Concept: http://blog.fanout.io/2013/02/10/http-grip-proxy-hold-technique/
+* Implementation: http://blog.fanout.io/2013/04/09/an-http-reverse-proxy-for-realtime/
+* Spec: https://fanout.io/docs/protocols.html#generic-realtime-intermediary-protocol-grip
+
 Usage
 -----
 
