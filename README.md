@@ -23,8 +23,7 @@ To subscribe a client to a channel:
 To publish on a channel:
 
     var publishControl = new Grip.GripPublishControl("http://localhost:5561");
-    var responseFormat = new HttpResponseFormat();
-    responseFormat.Create(
+    var responseFormat = new HttpResponseFormat(
       "text/plain",     // publish content type
       "hello world\n"); // publish body
     await publishControl.PublishAsync(

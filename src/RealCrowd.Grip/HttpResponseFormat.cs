@@ -14,7 +14,7 @@ namespace RealCrowd.Grip
         public List<KeyValuePair<string, string>> Headers { get; set; }
         public byte[] Body { get; set; }
 
-        public void Create(string contentType, string body)
+        public HttpResponseFormat(string contentType, string body)
         {
             Headers = new List<KeyValuePair<string, string>>()
             {
