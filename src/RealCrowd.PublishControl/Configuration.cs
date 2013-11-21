@@ -20,6 +20,7 @@ namespace RealCrowd.PublishControl
 
         public Configuration(string config)
         {
+            Entries = new List<Entry>();
             var pubList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(config);
             foreach (var pubConfig in pubList)
             {

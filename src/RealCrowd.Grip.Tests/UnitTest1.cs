@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RealCrowd.PublishControl;
+using System.IO;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace RealCrowd.Grip.Tests
 {
@@ -25,6 +28,11 @@ namespace RealCrowd.Grip.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            var reader = new StreamReader(Environment.GetEnvironmentVariable("RC_GRIP_CONFIG"));
+            var config = JsonConvert.DeserializeObject<Dictionary<string, object>>(reader.ReadToEnd());
+            var pub = new PublishControlSet();
+            pub.ApplyConfiguration(new PublishControl.Configuration(config["gripProxiesString"].ToString()));
+            pub.PublishAsync("test", new Item() { Formats = new List<Format>() { new FppFormat() { Value = "hello" } } }).Wait();
         }
     }
 }

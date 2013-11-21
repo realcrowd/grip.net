@@ -8,7 +8,7 @@ namespace RealCrowd.PublishControl
 {
     public class PublishControlSet
     {
-        private List<PublishControl> publishControls;
+        private List<PublishControl> publishControls = new List<PublishControl>();
 
         public void Clear()
         {
