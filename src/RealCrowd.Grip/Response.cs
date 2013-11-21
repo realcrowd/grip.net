@@ -7,28 +7,14 @@ using System.Threading.Tasks;
 
 namespace RealCrowd.Grip
 {
-    public class HttpResponseFormat : Format
+    public class Response
     {
         public int Code { get; set; }
         public string Reason { get; set; }
         public List<KeyValuePair<string, string>> Headers { get; set; }
         public byte[] Body { get; set; }
 
-        public void Create(string contentType, string body)
-        {
-            Headers = new List<KeyValuePair<string, string>>()
-            {
-                new KeyValuePair<string, string>("Content-Type", contentType)
-            };
-            Body = Encoding.UTF8.GetBytes(body);
-        }
-
-        public override string Name
-        {
-            get { return "http-response"; }
-        }
-
-        public override object ToObject()
+        public object ToObject()
         {
             var d = new Dictionary<string, object>();
             d["code"] = Code;
@@ -38,7 +24,7 @@ namespace RealCrowd.Grip
             {
                 d["body"] = Encoding.UTF8.GetString(Body);
             }
-            catch(ArgumentException)
+            catch (ArgumentException)
             {
                 d["body-bin"] = Convert.ToBase64String(Body);
             }

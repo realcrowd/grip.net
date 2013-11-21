@@ -9,7 +9,7 @@ namespace RealCrowd.Grip
 {
     public class HttpStreamFormat : Format
     {
-        public string Content { get; set; }
+        public byte[] Content { get; set; }
 
         public Boolean Close { get; set; }
 
@@ -22,10 +22,20 @@ namespace RealCrowd.Grip
         {
             var d = new Dictionary<string, object>();
             if (Close)
+            {
                 d["action"] = "close";
+            }
             else
-                d["content"] = Content;
-
+            {
+                try
+                {
+                    d["content"] = Encoding.UTF8.GetString(Content);
+                }
+                catch (ArgumentException)
+                {
+                    d["content-bin"] = Convert.ToBase64String(Content);
+                }
+            }
             return d;
         }
     }

@@ -9,9 +9,9 @@ namespace RealCrowd.Grip
 {
     public class GripPublishControlSet : PublishControlSet
     {
-        public async Task PublishAsync(string channel, string id, string prevId, HttpResponseFormat responseFormat = null, HttpStreamFormat streamFormat = null)
+        public async Task PublishAsync(string channel, string id, string previousId, HttpResponseFormat responseFormat = null, HttpStreamFormat streamFormat = null)
         {
-            var item = new Item() { Id = id, PrevId = prevId };
+            var item = new Item() { Id = id, PreviousId = previousId };
 
             if (responseFormat != null)
                 item.Formats.Add(responseFormat);

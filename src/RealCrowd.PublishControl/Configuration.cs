@@ -12,9 +12,7 @@ namespace RealCrowd.PublishControl
         public class Entry
         {
             public string ControlUri { get; set; }
-
             public string ControlIss { get; set; }
-
             public byte[] Key { get; set; }
         }
 
