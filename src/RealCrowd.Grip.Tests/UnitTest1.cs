@@ -28,10 +28,10 @@ namespace RealCrowd.Grip.Tests
     [TestClass]
     public class UnitTest1
     {
-        private Configuration config;
+        private static Configuration config;
 
-        [TestInitialize]
-        public void LoadConfig()
+        [ClassInitialize]
+        public static void LoadConfig(TestContext testContext)
         {
             var reader = new StreamReader(Environment.GetEnvironmentVariable("RC_GRIP_CONFIG"));
             var configObj = JsonConvert.DeserializeObject<Dictionary<string, object>>(reader.ReadToEnd());
