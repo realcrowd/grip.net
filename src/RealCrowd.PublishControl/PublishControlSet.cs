@@ -26,6 +26,9 @@ namespace RealCrowd.PublishControl
         {
             foreach (var entry in config.Entries)
             {
+                if (entry.ControlUri == null)
+                    continue;
+
                 var publishControl = new PublishControl(entry.ControlUri);
                 if (entry.ControlIss != null)
                 {
