@@ -31,7 +31,7 @@ public HttpResponseMessage Get()
     "(no data)\n"); // timeout body
   var response = new HttpResponseMessage(HttpStatusCode.OK);
   response.Content = new StringContent(instruct.ToString(), Encoding.UTF8,
-    "grip-instruct");
+    "application/grip-instruct");
   return response;
 }
 ```
