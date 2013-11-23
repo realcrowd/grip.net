@@ -18,17 +18,19 @@ Usage
 To subscribe an incoming HTTP request to a channel:
 
 ```c#
-async Task<HttpResponseMessage> GetAsync(...)
+using System.Text;
+using System.Net.Http;
+
+public HttpResponseMessage Get()
 {
-  var instruct = new Grip.Instruct();
+  var instruct = new RealCrowd.Grip.Instruct();
   instruct.CreateResponseHold(
     "test-channel", // channel to subscribe to
     null,           // id of previous publish (optional)
     "text/plain",   // timeout content type
     "(no data)\n"); // timeout body
   var response = new HttpResponseMessage(HttpStatusCode.OK);
-  response.Content = new StringContent(instruct.ToString(), Encoding.UTF8,
-    "grip-instruct");
+  response.Content = new StringContent(instruct.ToString(), Encoding.UTF8, "grip-instruct");
   return response;
 }
 ```
@@ -36,7 +38,9 @@ async Task<HttpResponseMessage> GetAsync(...)
 To publish an HTTP response on a channel:
 
 ```c#
-var publishControl = new Grip.GripPublishControl("http://localhost:5561");
+using System.Net.Http;
+
+var publishControl = new RealCrowd.Grip.GripPublishControl("http://localhost:5561");
 var responseFormat = new HttpResponseFormat(
   "text/plain",     // publish content type
   "hello world\n"); // publish body
