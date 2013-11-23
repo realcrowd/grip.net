@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RealCrowd.Grip
 {
-    class Channel
+    public class Channel
     {
         public string Name { get; set; }
         public string PreviousId { get; set; }

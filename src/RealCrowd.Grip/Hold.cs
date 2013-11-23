@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace RealCrowd.Grip
 {
-    enum HoldMode
+    public enum HoldMode
     {
         Response,
         Stream
     }
 
-    class Hold
+    public class Hold
     {
         public HoldMode Mode { get; set; }
 

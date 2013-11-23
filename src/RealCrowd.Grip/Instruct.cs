@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RealCrowd.Grip
 {
-    class Instruct
+    public class Instruct
     {
         public Hold Hold { get; set; }
         public Response Response { get; set; }

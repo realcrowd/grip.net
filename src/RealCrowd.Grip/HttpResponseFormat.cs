@@ -33,9 +33,15 @@ namespace RealCrowd.Grip
         public override object ToObject()
         {
             var d = new Dictionary<string, object>();
-            d["code"] = Code;
-            d["reason"] = Reason;
+
+            if (Code > 0)
+                d["code"] = Code;
+
+            if (Reason != null)
+                d["reason"] = Reason;
+
             d["headers"] = Headers.Select(pair => new List<string>() { pair.Key, pair.Value });
+
             try
             {
                 d["body"] = Encoding.UTF8.GetString(Body);
@@ -44,6 +50,7 @@ namespace RealCrowd.Grip
             {
                 d["body-bin"] = Convert.ToBase64String(Body);
             }
+
             return d;
         }
     }
