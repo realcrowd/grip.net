@@ -13,8 +13,13 @@ namespace RealCrowd.Grip
     {
         public int Code { get; set; }
         public string Reason { get; set; }
-        public List<KeyValuePair<string, string>> Headers { get; set; }
+        public IList<KeyValuePair<string, string>> Headers { get; set; }
         public byte[] Body { get; set; }
+
+        public Response()
+        {
+            Headers = new List<KeyValuePair<string, string>>();
+        }
 
         public object ToObject()
         {
@@ -26,7 +31,8 @@ namespace RealCrowd.Grip
             if (Reason != null)
                 d["reason"] = Reason;
 
-            d["headers"] = Headers.Select(pair => new List<string>() { pair.Key, pair.Value });
+            if (Headers.Count() > 0)
+                d["headers"] = Headers.Select(pair => new List<string>() { pair.Key, pair.Value });
 
             try
             {

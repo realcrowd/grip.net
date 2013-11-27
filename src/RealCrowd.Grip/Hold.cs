@@ -18,7 +18,12 @@ namespace RealCrowd.Grip
     {
         public HoldMode Mode { get; set; }
 
-        public List<Channel> Channels { get; set; }
+        public IList<Channel> Channels { get; set; }
+
+        public Hold()
+        {
+            Channels = new List<Channel>();
+        }
 
         public object ToObject()
         {

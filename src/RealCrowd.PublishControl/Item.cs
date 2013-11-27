@@ -10,9 +10,14 @@ namespace RealCrowd.PublishControl
 {
     public class Item
     {
-        public List<Format> Formats { get; set; }
+        public IList<Format> Formats { get; set; }
         public string Id { get; set; }
         public string PreviousId { get; set; }
+
+        public Item()
+        {
+            Formats = new List<Format>();
+        }
 
         public Dictionary<string, object> ToDictionary()
         {

@@ -29,14 +29,18 @@ namespace RealCrowd.Grip.Tests
     public class UnitTest1
     {
         private static Configuration config;
+        private static Configuration config2;
 
         [ClassInitialize]
         public static void LoadConfig(TestContext testContext)
         {
             var reader = new StreamReader(Environment.GetEnvironmentVariable("RC_GRIP_CONFIG"));
             var configObj = JsonConvert.DeserializeObject<Dictionary<string, object>>(reader.ReadToEnd());
+
             config = new PublishControl.Configuration(configObj["gripProxiesString"].ToString());
             config.Entries.Add(new Configuration.Entry() { ControlIss = "test-iss", Key = Encoding.UTF8.GetBytes("test-key") });
+
+            config2 = new PublishControl.Configuration(configObj["gripProxiesString2"].ToString());
         }
 
         [TestMethod]
@@ -87,6 +91,14 @@ namespace RealCrowd.Grip.Tests
             var pub = new PublishControlSet();
             pub.ApplyConfiguration(config);
             pub.PublishAsync("test", new Item() { Formats = new List<Format>() { new FppFormat() { Value = "hello" } } }).Wait();
+        }
+
+        [TestMethod]
+        public void PublishGrip()
+        {
+            var pub = new GripPublishControlSet();
+            pub.ApplyConfiguration(config2);
+            pub.PublishAsync("test", null, null, new HttpResponseFormat("text/plain", "hello"), null).Wait();
         }
     }
 }

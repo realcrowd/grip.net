@@ -18,7 +18,7 @@ namespace RealCrowd.PublishControl
             public byte[] Key { get; set; }
         }
 
-        public List<Entry> Entries { get; set; }
+        public IList<Entry> Entries { get; set; }
 
         public Configuration(string config)
         {

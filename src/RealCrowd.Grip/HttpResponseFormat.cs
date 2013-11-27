@@ -13,7 +13,7 @@ namespace RealCrowd.Grip
     {
         public int Code { get; set; }
         public string Reason { get; set; }
-        public List<KeyValuePair<string, string>> Headers { get; set; }
+        public IList<KeyValuePair<string, string>> Headers { get; set; }
         public byte[] Body { get; set; }
 
         public HttpResponseFormat(string contentType, string body)
