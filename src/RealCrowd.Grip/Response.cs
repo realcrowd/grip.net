@@ -18,7 +18,6 @@ namespace RealCrowd.Grip
 
         public Response()
         {
-            Headers = new List<KeyValuePair<string, string>>();
         }
 
         public object ToObject()
@@ -31,16 +30,19 @@ namespace RealCrowd.Grip
             if (Reason != null)
                 d["reason"] = Reason;
 
-            if (Headers.Count() > 0)
+            if (Headers != null)
                 d["headers"] = Headers.Select(pair => new List<string>() { pair.Key, pair.Value });
 
-            try
+            if (Body != null)
             {
-                d["body"] = Encoding.UTF8.GetString(Body);
-            }
-            catch (ArgumentException)
-            {
-                d["body-bin"] = Convert.ToBase64String(Body);
+                try
+                {
+                    d["body"] = Encoding.UTF8.GetString(Body);
+                }
+                catch (ArgumentException)
+                {
+                    d["body-bin"] = Convert.ToBase64String(Body);
+                }
             }
 
             return d;

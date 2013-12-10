@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>RealCrowd.Grip</id>
-    <version>1.0.4</version>
+    <version>1.1.0</version>
     <authors>RealCrowd</authors>
     <description>HTTP GRIP library for .NET</description>
     <language>en-US</language>

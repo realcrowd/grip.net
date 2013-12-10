@@ -7,6 +7,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Text;
+using System.Net.Http;
 
 namespace RealCrowd.Grip.Tests
 {
@@ -83,6 +84,10 @@ namespace RealCrowd.Grip.Tests
             var token = "eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJpc3MiOiAidGVzdC1pc3MiLCAiZXhwIjogMTM4NTE2NTQ2M30.kXmc_P_FsmqZH_tUPph4WPK9cW987RFYpMnOGR3OHt8";
             var claim = Validator.CheckGripSignature(token, config, new DateTime(2013, 11, 22, 23, 9, 0, DateTimeKind.Utc));
             Assert.AreEqual("test-iss", claim["iss"].ToString());
+            var request = new HttpRequestMessage();
+            request.Headers.Add("Grip-Sig", token);
+            var ok = request.CheckGripSignature(config, new DateTime(2013, 11, 22, 23, 9, 0, DateTimeKind.Utc));
+            Assert.AreEqual(ok, true);
         }
 
         [TestMethod]

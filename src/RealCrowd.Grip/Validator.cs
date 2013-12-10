@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -90,6 +91,27 @@ namespace RealCrowd.Grip
                 throw new ValidationException("Could not decode signature with any key.");
 
             return CheckGripSignature(claimRaw, checkTime);
+        }
+    }
+
+    public static class ValidatorExtensions
+    {
+        public static bool CheckGripSignature(this HttpRequestMessage request, PublishControl.Configuration config, DateTime? checkTime = null)
+        {
+            foreach (var headerVal in request.Headers.GetValues("Grip-Sig"))
+            {
+                try
+                {
+                    Validator.CheckGripSignature(headerVal, config, checkTime);
+                    return true;
+                }
+                catch (ValidationException)
+                {
+                    // skip to the next
+                }
+            }
+
+            return false;
         }
     }
 }
