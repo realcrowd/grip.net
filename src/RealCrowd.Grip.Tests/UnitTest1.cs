@@ -85,8 +85,10 @@ namespace RealCrowd.Grip.Tests
             var claim = Validator.CheckGripSignature(token, config, new DateTime(2013, 11, 22, 23, 9, 0, DateTimeKind.Utc));
             Assert.AreEqual("test-iss", claim["iss"].ToString());
             var request = new HttpRequestMessage();
-            request.Headers.Add("Grip-Sig", token);
             var ok = request.CheckGripSignature(config, new DateTime(2013, 11, 22, 23, 9, 0, DateTimeKind.Utc));
+            Assert.AreEqual(ok, false);
+            request.Headers.Add("Grip-Sig", token);
+            ok = request.CheckGripSignature(config, new DateTime(2013, 11, 22, 23, 9, 0, DateTimeKind.Utc));
             Assert.AreEqual(ok, true);
         }
 

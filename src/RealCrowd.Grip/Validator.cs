@@ -98,7 +98,11 @@ namespace RealCrowd.Grip
     {
         public static bool CheckGripSignature(this HttpRequestMessage request, PublishControl.Configuration config, DateTime? checkTime = null)
         {
-            foreach (var headerVal in request.Headers.GetValues("Grip-Sig"))
+            IEnumerable<string> values;
+            if (!request.Headers.TryGetValues("Grip-Sig", out values))
+                return false;
+
+            foreach (var headerVal in values)
             {
                 try
                 {
