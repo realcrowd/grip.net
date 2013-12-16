@@ -27,11 +27,14 @@ namespace RealCrowd.PublishControl
             foreach (var pubConfig in pubList)
             {
                 var controlUri = pubConfig["controlUri"].ToString();
+
                 string controlIss = null;
-                byte[] key = null;
                 if (pubConfig.ContainsKey("controlIss"))
-                {
                     controlIss = pubConfig["controlIss"].ToString();
+
+                byte[] key = null;
+                if (pubConfig.ContainsKey("key"))
+                {
                     var keyStr = pubConfig["key"].ToString();
                     if (keyStr.StartsWith("base64:"))
                         key = Convert.FromBase64String(keyStr.Substring(7));

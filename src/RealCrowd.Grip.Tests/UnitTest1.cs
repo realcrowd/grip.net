@@ -91,6 +91,13 @@ namespace RealCrowd.Grip.Tests
         }
 
         [TestMethod]
+        public void ValidSignature2()
+        {
+            var token = "eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJpc3MiOiAicHVzaHBpbiIsICJleHAiOiAxMzg1MTY1NDYzfQ.K_MKuXNy3gv8R2nKLujrZOq6q06c17YIaYLQWTr-oxs";
+            Validator.CheckGripSignature(token, config2, new DateTime(2013, 11, 22, 23, 9, 0, DateTimeKind.Utc));
+        }
+
+        [TestMethod]
         public void Publish()
         {
             var pub = new PublishControlSet();
